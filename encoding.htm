@@ -1,0 +1,58 @@
+<html><head><title>WELCOME :) | fansubs.me</title>
+<style>
+td {font-family:Verdana; font-size:12; text-align:justify}
+a {font-weight:bold; text-decoration:none}
+A:hover {color:e0e3e6}
+</style>
+</head>
+
+<body bgcolor=000000 text=805555 topmargin=0 link=800000 vlink=800000 alink=800000>
+<center><br>
+<table align=center bgcolor=500000 cellpadding=15 cellspacing=2 width=650>
+<tr><td bgcolor=000000>
+<center><font size=5 color=600000><b>Fansubs.me | Tutorial | Encoding
+</center></td></tr>
+
+<tr><td bgcolor=000000><br>
+Encoding<br>
+
+Today I would like to search how to encode video using x264/x265 command line on Linux. And here my research about it.<br>
+
+x264 (for the video)<br>
+
+I do not use ffmpeg because of encoding in 8bit or 10bit.<br>
+
+It seems that the easiest way is to download the official binaries from VLC: x264 binaries. I choose the most up to date version on this list of the x264 and x264-10b binaire.<br>
+
+After that, you must to chmod +x theses binaires.<br>
+
+Encode Video<br>
+
+There are three ways to encode:<br>
+
+1 pass = you select a bitrate for your video<br>
+2 pass = you do a 1 pass to check and organize the bitrate and then you encode<br>
+crf = define a global quality of the video. The visual lossless is --crf 18<br>
+if you set a higher number, the quality will be worst, but the size will be lower.<br>
+if you set a lower number, the quality will be better, but the size will be higher.<br>
+Example:<br>
+x264 --preset veryslow --crf 18 --bframes 10 -o 'output.mkv' 'input.mkv'<br>
+x264-10b --preset veryslow --crf 18 --bframes 10 -o 'output.mkv' 'input.mkv'<br>
+
+x265 (for the video)<br>
+
+For this one, I’ve used a tarball version, and compiled it:<br>
+
+Download the last version here: x265 tarball<br>
+Extract it: tar -xvzf x265.tar.gz and go to build/linux<br>
+Run sh multilib.sh<br>
+Your binarie is on build/linux/8bit and is compiled to use --output-depth with the number 8/10 or even 12.<br>
+Because x265 only run with input files in the YUV or Y4M format, you should to use ffmpeg (install it on your system)<br>
+Now you can encode!<br>
+Encode video<br>
+
+Same than x264, 3 ways to encode the video. CRF 20.0 is the same to CRF 18.0 for X264. x265 want the --input-res with the resolution of the input video.<br>
+
+Example:<br>
+ffmpeg -i 'input.mkv' -an -f yuv4mpegpipe - | x265 --y4m --input - --input-res 1280x720 --output-depth 10 --preset slower --crf 20.0 --output 'output.hevc' <br>
+And after that, you can mux to have a .mkv :)</b><br><br><br>
