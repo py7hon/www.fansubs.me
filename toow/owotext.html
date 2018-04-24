@@ -1,0 +1,63 @@
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <link href="/images/favicon.gif" rel="shortcut icon" type="image/gif"/>
+  <meta charset="utf-8">
+  <meta name="HONK HONK HONK" content="HONK">
+  <meta name="mashallpotatoes" content="HONKS">
+
+  <title>
+    owo text generator *notices shitpost* uwu what's this?
+  </title>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body class="yotsuba">
+  <style>
+    textarea{
+      display: block;
+      margin: auto;
+      width: 100%;
+      font-size: 12pt;
+      resize: vertical;
+    }
+    #owoButton{
+      display: block;
+      margin: auto;
+      font-size: 24pt;
+    }
+    h1{
+      text-align: center;
+    }
+  </style>
+
+  <h1>owo text generator</h1>
+  <p>Fow aww youw uwu nyeeds >w<  Pwease owo wesponsibwy</p>
+  <p>Based on the <a href="https://chrome.google.com/webstore/detail/owo/jolaggjkdhhgcdhcjjhfkkbllefoggob?hl=en">OWO Chrome extension</a> by leafysweetsgarden</p>
+  <textarea id="textarea" rows="8">Enter your text here and click the "owo" button to notice that bulge!</textarea>
+
+  <button id="owoButton" onclick="OwoifyText()">owo</button>
+  <a href="/tools.html">back to tools page</a>
+  <script>
+  var faces = ["(・`ω´・)", ";;w;;", "owo", "UwU", ">w<", "^w^"];
+  function OwoifyText(){
+      v = document.getElementById("textarea").value
+      v = v.replace(/(?:r|l)/g, "w");
+      v = v.replace(/(?:R|L)/g, "W");
+      v = v.replace(/n([aeiou])/g, 'ny$1');
+      v = v.replace(/N([aeiou])/g, 'Ny$1');
+      v = v.replace(/N([AEIOU])/g, 'Ny$1');
+      v = v.replace(/ove/g, "uv");
+      v = v.replace(/\!+/g, " " + faces[Math.floor(Math.random() * faces.length)] + " ");
+      document.getElementById("textarea").value = v
+  };
+  </script>
+</body>
+</html>
